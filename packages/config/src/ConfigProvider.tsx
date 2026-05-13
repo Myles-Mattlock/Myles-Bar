@@ -6,6 +6,7 @@ import {
 } from './ConfigReducer';
 import { configService } from './ConfigService';
 import { defaultConfig } from './defaults/default-config';
+import { useWindowEffects } from './hooks/useWindowEffects';
 import { useConfigChangeIpc } from './ipc/hooks/useConfigChangeIpc';
 import { useThemePreviewIpc } from './ipc/hooks/useThemePreviewIpc';
 import { deepMerge } from './utils/deepMerge';
@@ -35,6 +36,8 @@ export const ConfigProvider: React.FC<{
   // Register IPC hooks
   useThemePreviewIpc(state);
   useConfigChangeIpc(dispatch);
+
+  useWindowEffects(state);
 
   // Sync radius changes to the document to ALL widgets
   // TODO: Integrate with theme

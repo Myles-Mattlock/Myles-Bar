@@ -27,3 +27,6 @@ public/geistMono
 *.njsproj
 *.sln
 *.sw?
+
+# Windows reserved device names
+nul

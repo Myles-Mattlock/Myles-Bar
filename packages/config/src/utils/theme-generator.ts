@@ -6,7 +6,7 @@ export const generateThemeFromColor = (baseColor: string): Theme => {
   const base = tinycolor(baseColor);
   const isLight = base.isLight();
 
-  const background = base.toHexString();
+  const background = base.toHex8String();
   const backgroundDeeper = isLight
     ? base.clone().darken(8).toHexString()
     : base.clone().lighten(8).toHexString();

@@ -29,6 +29,7 @@ export const AppSettingsSchema = z.object({
   themes: z.array(ThemeSchema),
   currentThemeId: z.string(),
   radius: z.string(),
+  windowEffect: z.string().default('acrylic'),
 });
 
 export const ProviderSettingsSchema = z.object({

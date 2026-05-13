@@ -9,6 +9,7 @@ export const defaultConfig: RootConfig = {
     themes: [defaultTheme, ...catppuccinThemes],
     currentThemeId: 'default',
     radius: '0.5rem',
+    windowEffect: 'acrylic',
   },
   widgets: {
     main: {

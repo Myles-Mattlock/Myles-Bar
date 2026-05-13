@@ -5,7 +5,7 @@ export const defaultTheme: Theme = {
   name: 'Default',
   colors: {
     '--border': '#343b47',
-    '--background': '#1e2228',
+    '--background': '#1e2228e0',
     '--background-deeper': '#090b0f',
     '--button': '#353b45',
     '--button-border': '#4e5663',
