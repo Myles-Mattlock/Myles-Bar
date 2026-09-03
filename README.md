@@ -1,4 +1,4 @@
-![Screenshot of overline-zebar in use with GlazeWM, previewing multiple themes and rounded settings](https://github.com/user-attachments/assets/08b4be9a-e405-4217-814b-aac7acd6e0f5)
+<!-- ![Screenshot of overline-zebar in use with GlazeWM, previewing multiple themes and rounded settings](https://github.com/user-attachments/assets/08b4be9a-e405-4217-814b-aac7acd6e0f5)
 
 # overline-zebar
 
@@ -182,4 +182,4 @@ This will start the development server for all widgets with hot reloading. Zebar
 
 ## Contributions
 
-Pull requests are welcome. If you find any issues or have feature suggestions, feel free to open an issue on GitHub.
+Pull requests are welcome. If you find any issues or have feature suggestions, feel free to open an issue on GitHub. -->
