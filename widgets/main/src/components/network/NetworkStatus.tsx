@@ -7,7 +7,7 @@ import { calculateWidgetPlacementFromRight } from '../../utils/calculateWidgetPl
 interface NetworkStatusProps {
   network: {
     interfaces: zebar.NetworkInterface[];
-    gateway?: zebar.NetworkGateway | null;
+    defaultGateway?: zebar.NetworkGateway | null;
   } | null;
 }
 
@@ -19,8 +19,8 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
     interfaces[0];
   const isWifi = connectedInterface?.type === 'wifi';
   const connectedName = connectedInterface
-    ? isWifi && network?.gateway?.ssid
-      ? network.gateway.ssid
+    ? isWifi && network?.defaultGateway?.ssid
+      ? network.defaultGateway.ssid
       : connectedInterface.friendlyName || connectedInterface.name
     : 'No network';
 

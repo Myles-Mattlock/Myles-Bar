@@ -15,7 +15,7 @@ import {
 interface NetworkPanelProps {
   network: {
     interfaces: zebar.NetworkInterface[];
-    gateway?: zebar.NetworkGateway | null;
+    defaultGateway?: zebar.NetworkGateway | null;
     traffic?: zebar.NetworkTraffic | null;
   } | null;
 }
