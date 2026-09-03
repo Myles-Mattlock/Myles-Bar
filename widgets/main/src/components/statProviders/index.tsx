@@ -76,21 +76,49 @@ export default function StatProviders({
       }}
     >
       {(statProviders.cpu || useInlineStats) && cpu && (
-        <Stat
-          Icon={<p className="font-medium text-icon">CPU</p>}
-          stat={`${Math.round(cpu.usage)}%`}
-          type={useInlineStats ? 'inline' : 'ring'}
-          threshold={systemStatThresholds}
-        />
+        <>
+          {useInlineStats && (
+            <Stat
+              Icon={<p className="font-medium text-icon">CPU</p>}
+              stat={`${Math.round(cpu.usage)}%`}
+              type="inline"
+              threshold={systemStatThresholds}
+            />
+          )}
+          <Stat
+            Icon={
+              useInlineStats ? null : (
+                <p className="font-medium text-icon">CPU</p>
+              )
+            }
+            stat={`${Math.round(cpu.usage)}%`}
+            type="ring"
+            threshold={systemStatThresholds}
+          />
+        </>
       )}
 
       {(statProviders.memory || useInlineStats) && memory && (
-        <Stat
-          Icon={<p className="font-medium text-icon">RAM</p>}
-          stat={`${Math.round(memory.usage)}%`}
-          type={useInlineStats ? 'inline' : 'ring'}
-          threshold={systemStatThresholds}
-        />
+        <>
+          {useInlineStats && (
+            <Stat
+              Icon={<p className="font-medium text-icon">RAM</p>}
+              stat={`${Math.round(memory.usage)}%`}
+              type="inline"
+              threshold={systemStatThresholds}
+            />
+          )}
+          <Stat
+            Icon={
+              useInlineStats ? null : (
+                <p className="font-medium text-icon">RAM</p>
+              )
+            }
+            stat={`${Math.round(memory.usage)}%`}
+            type="ring"
+            threshold={systemStatThresholds}
+          />
+        </>
       )}
 
       {statProviders.weather && weather && (
