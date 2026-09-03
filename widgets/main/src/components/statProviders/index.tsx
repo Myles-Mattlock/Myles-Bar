@@ -46,12 +46,12 @@ export default function StatProviders({
   weather,
 }: Props) {
   const [statProviders] = useWidgetSetting('main', 'providers');
+  const [useInlineStats] = useWidgetSetting('main', 'useInlineStats');
   const allProvidersDisabled = Object.values(statProviders || {}).every(
     (p) => !p
-  );
+  ) && !useInlineStats;
   const [weatherThresholds] = useWidgetSetting('main', 'weatherThresholds');
   const [weatherUnit] = useWidgetSetting('main', 'weatherUnit');
-  const [useInlineStats] = useWidgetSetting('main', 'useInlineStats');
   const [systemStatThresholds] = useWidgetSetting(
     'main',
     'systemStatThresholds'
@@ -75,7 +75,7 @@ export default function StatProviders({
         await zebar.startWidget('system-stats', widgetPlacement, {});
       }}
     >
-      {statProviders.cpu && cpu && (
+      {(statProviders.cpu || useInlineStats) && cpu && (
         <Stat
           Icon={<p className="font-medium text-icon">CPU</p>}
           stat={`${Math.round(cpu.usage)}%`}
@@ -84,7 +84,7 @@ export default function StatProviders({
         />
       )}
 
-      {statProviders.memory && memory && (
+      {(statProviders.memory || useInlineStats) && memory && (
         <Stat
           Icon={<p className="font-medium text-icon">RAM</p>}
           stat={`${Math.round(memory.usage)}%`}
