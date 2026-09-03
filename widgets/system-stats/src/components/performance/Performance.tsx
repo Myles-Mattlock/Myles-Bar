@@ -1,4 +1,4 @@
-import { Card, CardTitle } from '@overline-zebar/ui';
+import { Card, CardTitle } from '@myles-zebar/ui';
 import {
   BarChart3,
   Brain,
@@ -8,7 +8,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { CpuOutput, MemoryOutput } from 'zebar';
-import { PanelLayout } from '@overline-zebar/ui';
+import { PanelLayout } from '@myles-zebar/ui';
 
 interface PerformanceProps {
   cpu: CpuOutput | null;

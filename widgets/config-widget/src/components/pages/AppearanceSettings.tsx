@@ -9,8 +9,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@overline-zebar/ui';
-import { useAppSetting } from '@overline-zebar/config';
+} from '@myles-zebar/ui';
+import { useAppSetting } from '@myles-zebar/config';
 import PanelHeading from '../PanelHeading';
 import { ThemeEditor } from '../theme/ThemeEditor';
 import { Separator } from '../common/Separator';
@@ -39,7 +39,7 @@ function AppearanceSettings() {
       <div className="px-3 py-1 flex-grow flex flex-col">
         <PanelHeading
           title="Apperance"
-          description="Customise your overline-zebar widgets to suit you."
+          description="Customise your myles-zebar widgets to suit you."
         />
         <div className="h-full">
           <FormField>

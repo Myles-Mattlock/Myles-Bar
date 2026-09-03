@@ -1,5 +1,5 @@
 {
-  "name": "@overline-zebar/tailwind",
+  "name": "@myles-zebar/tailwind",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -13,8 +13,8 @@
   },
   "types": "./tailwind.config.ts",
   "devDependencies": {
-    "@overline-zebar/typescript": "workspace:*",
+    "@myles-zebar/typescript": "workspace:*",
     "tailwindcss": "catalog:",
-    "typescript": "^5.8.3"
+    "typescript": "^6.0.3"
   }
 }

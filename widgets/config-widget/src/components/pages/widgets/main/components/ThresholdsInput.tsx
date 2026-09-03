@@ -2,7 +2,7 @@ import {
   LabelColor,
   useWidgetSetting,
   Threshold,
-} from '@overline-zebar/config';
+} from '@myles-zebar/config';
 import {
   FieldTitle,
   FormField,
@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import { NumberInput } from '../../../../NumberInput';
 
 interface ThresholdsInputProps {

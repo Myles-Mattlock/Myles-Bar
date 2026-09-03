@@ -1,4 +1,4 @@
-import { useManageRootConfig } from '@overline-zebar/config';
+import { useManageRootConfig } from '@myles-zebar/config';
 import {
   Button,
   FieldDescription,
@@ -7,7 +7,7 @@ import {
   FormField,
   Input,
   PanelLayout,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import { useState } from 'react';
 import PanelHeading from '../PanelHeading';
 import { Separator } from '../common/Separator';
@@ -25,7 +25,7 @@ export function ConfigManagement() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'overline-zebar-config.json';
+    a.download = 'myles-zebar-config.json';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -68,7 +68,7 @@ export function ConfigManagement() {
       <div className="px-3 py-1 flex-grow flex flex-col">
         <PanelHeading
           title={'Config Management'}
-          description={'Manage overline-zebar configuration.'}
+          description={'Manage myles-zebar configuration.'}
         />
         <div className="pb-1">
           {feedback && (

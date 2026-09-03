@@ -1,4 +1,4 @@
-import { Card, CardTitle } from '@overline-zebar/ui';
+import { Card, CardTitle } from '@myles-zebar/ui';
 import { ArrowDown, ArrowUp, Globe, Rss } from 'lucide-react';
 import * as zebar from 'zebar';
 import List from './List';

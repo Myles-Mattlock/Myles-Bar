@@ -1,7 +1,7 @@
 import { AnimatePresence, MotionProps, motion } from 'framer-motion';
 import React from 'react';
 import { cn } from '../../../utils/cn';
-import { useWidgetSetting } from '@overline-zebar/config';
+import { useWidgetSetting } from '@myles-zebar/config';
 
 export function TitleDetails({
   title,

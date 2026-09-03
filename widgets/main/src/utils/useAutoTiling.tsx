@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
-import { useAppSetting } from '@overline-zebar/config';
+import { useAppSetting } from '@myles-zebar/config';
 
 export const useAutoTiling = () => {
   const queryClient = useQueryClient();

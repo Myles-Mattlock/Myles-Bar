@@ -1,5 +1,5 @@
-import { useWidgetSetting } from '@overline-zebar/config';
-import { Switch } from '@overline-zebar/ui';
+import { useWidgetSetting } from '@myles-zebar/config';
+import { Switch } from '@myles-zebar/ui';
 import { useEffect, useMemo, useState } from 'react';
 import * as zebar from 'zebar';
 
