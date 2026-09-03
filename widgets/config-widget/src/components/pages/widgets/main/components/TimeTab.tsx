@@ -1,4 +1,4 @@
-import { useWidgetSetting } from '@overline-zebar/config';
+import { useWidgetSetting } from '@myles-zebar/config';
 import {
   FieldDescription,
   FieldInput,
@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 
 const TIME_FORMATS = [
   { value: 'HH:mm', label: '24-hour (14:30)' },

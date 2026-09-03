@@ -1,4 +1,4 @@
-import { useAppSetting } from '@overline-zebar/config';
+import { useAppSetting } from '@myles-zebar/config';
 import {
   FieldDescription,
   FieldInput,
@@ -7,7 +7,7 @@ import {
   Input,
   PanelLayout,
   Switch,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import PanelHeading from '../PanelHeading';
 import { Separator } from '../common/Separator';
 
@@ -20,7 +20,7 @@ export function GeneralSettings() {
       <div className="px-3 py-1 flex-grow flex flex-col">
         <PanelHeading
           title={'General'}
-          description={'Settings about all overline-zebar widgets.'}
+          description={'Settings about all myles-zebar widgets.'}
         />
         <div>
           <FormField switch>

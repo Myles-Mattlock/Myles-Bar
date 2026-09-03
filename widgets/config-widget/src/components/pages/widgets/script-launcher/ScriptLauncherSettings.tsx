@@ -1,5 +1,5 @@
 import PanelHeading from '@/components/PanelHeading';
-import { PanelLayout, Tabs } from '@overline-zebar/ui';
+import { PanelLayout, Tabs } from '@myles-zebar/ui';
 import { ApplicationsTab } from './components/ApplicationsTab';
 
 export function ScriptLauncherSettings() {

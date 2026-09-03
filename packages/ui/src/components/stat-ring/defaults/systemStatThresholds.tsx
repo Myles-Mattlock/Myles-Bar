@@ -1,4 +1,4 @@
-import { Threshold } from '@overline-zebar/config';
+import { Threshold } from '@myles-zebar/config';
 
 export const systemStatThresholds: Threshold[] = [
   { id: 'stat-1', min: 0, max: 70, labelColor: '--text' },

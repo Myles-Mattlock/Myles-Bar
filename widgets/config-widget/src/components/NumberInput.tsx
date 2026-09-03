@@ -1,4 +1,4 @@
-import { Input } from '@overline-zebar/ui';
+import { Input } from '@myles-zebar/ui';
 import React, { useState, useEffect } from 'react';
 import { useDebounce } from 'use-debounce';
 

@@ -1,7 +1,7 @@
 import { Info } from 'lucide-react';
 import { useSearchParams } from 'wouter';
 import * as zebar from 'zebar';
-import { PanelLayout } from '@overline-zebar/ui';
+import { PanelLayout } from '@myles-zebar/ui';
 import InterfaceDetails from './components/InterfaceDetails';
 import Traffic from './components/Traffic';
 import {
@@ -10,7 +10,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 
 interface NetworkPanelProps {
   network: {

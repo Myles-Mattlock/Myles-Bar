@@ -2,7 +2,7 @@ import {
   generateThemeFromColor,
   useThemePreview,
   useThemes,
-} from '@overline-zebar/config';
+} from '@myles-zebar/config';
 import {
   Button,
   ColorPicker,
@@ -17,7 +17,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import { useState } from 'react';
 import SaveAsNewDialog from './SaveAsNewDialog';
 

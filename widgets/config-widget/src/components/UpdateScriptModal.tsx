@@ -1,4 +1,4 @@
-import { LauncherCommand } from '@overline-zebar/config/src/types';
+import { LauncherCommand } from '@myles-zebar/config/src/types';
 import {
   Button,
   Dialog,
@@ -14,7 +14,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import {
   AppWindow,
   FileCode,

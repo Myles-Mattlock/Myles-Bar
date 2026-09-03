@@ -2,10 +2,10 @@ import {
   getLucideIcon,
   UpdateScriptModal,
 } from '@/components/UpdateScriptModal';
-import { useWidgetSetting } from '@overline-zebar/config';
-import { LauncherCommand } from '@overline-zebar/config/src/types';
-import { generateId } from '@overline-zebar/config/src/utils/generateId';
-import { Button, Card } from '@overline-zebar/ui';
+import { useWidgetSetting } from '@myles-zebar/config';
+import { LauncherCommand } from '@myles-zebar/config/src/types';
+import { generateId } from '@myles-zebar/config/src/utils/generateId';
+import { Button, Card } from '@myles-zebar/ui';
 import { Plus, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 

@@ -1,7 +1,7 @@
 import { Battery, Cable, Heart, PlugZap, RefreshCcw, Zap } from 'lucide-react';
 import { BatteryOutput } from 'zebar';
 import { formatMsToHumanDuration } from '@/utils/time';
-import { Threshold, useWidgetSetting } from '@overline-zebar/config';
+import { Threshold, useWidgetSetting } from '@myles-zebar/config';
 
 type BatteryProps = {
   battery: BatteryOutput;

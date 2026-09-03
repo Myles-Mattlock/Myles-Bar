@@ -1,4 +1,4 @@
-import { Chip } from '@overline-zebar/ui';
+import { Chip } from '@myles-zebar/ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Volume, Volume1, Volume2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';

@@ -1,4 +1,4 @@
-import { NavbarItem, Navbar as UiNavbar } from '@overline-zebar/ui';
+import { NavbarItem, Navbar as UiNavbar } from '@myles-zebar/ui';
 import { Cog, DatabaseZap, LayoutGrid, Palette } from 'lucide-react';
 import { useLocation } from 'wouter';
 

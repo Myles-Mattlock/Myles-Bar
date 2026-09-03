@@ -1,5 +1,5 @@
-import { useWidgetSetting } from '@overline-zebar/config';
-import { chipStyles } from '@overline-zebar/ui';
+import { useWidgetSetting } from '@myles-zebar/config';
+import { chipStyles } from '@myles-zebar/ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import { GlazeWmOutput } from 'zebar';
 import { tailwindConfig } from '../main';
