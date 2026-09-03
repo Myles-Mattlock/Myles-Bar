@@ -44,7 +44,12 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
         )}
       </PopoverTrigger>
       <PopoverPortal>
-        <PopoverPositioner side="bottom" align="end" sideOffset={6}>
+        <PopoverPositioner
+          side="bottom"
+          align="end"
+          sideOffset={6}
+          className="z-[9999]"
+        >
           <PopoverPopup className="w-64 p-3">
             <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-text-muted">
               Network
