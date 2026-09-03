@@ -1,5 +1,5 @@
 import { Chip } from '@overline-zebar/ui';
-import { Wifi, WifiOff } from 'lucide-react';
+import { Cable, Wifi, WifiOff } from 'lucide-react';
 import { useRef } from 'react';
 import * as zebar from 'zebar';
 import { calculateWidgetPlacementFromRight } from '../../utils/calculateWidgetPlacement';
@@ -7,6 +7,7 @@ import { calculateWidgetPlacementFromRight } from '../../utils/calculateWidgetPl
 interface NetworkStatusProps {
   network: {
     interfaces: zebar.NetworkInterface[];
+    gateway?: zebar.NetworkGateway | null;
   } | null;
 }
 
@@ -16,8 +17,11 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
   const connectedInterface =
     interfaces.find((networkInterface) => networkInterface.isDefault) ??
     interfaces[0];
+  const isWifi = connectedInterface?.type === 'wifi';
   const connectedName = connectedInterface
-    ? connectedInterface.friendlyName || connectedInterface.name
+    ? isWifi && network?.gateway?.ssid
+      ? network.gateway.ssid
+      : connectedInterface.friendlyName || connectedInterface.name
     : 'No network';
 
   return (
@@ -35,8 +39,10 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
         await zebar.startWidget('network-stats', placement, {});
       }}
     >
-      {connectedInterface ? (
+      {isWifi ? (
         <Wifi className="size-3.5 text-icon" strokeWidth={3} />
+      ) : connectedInterface ? (
+        <Cable className="size-3.5 text-icon" strokeWidth={3} />
       ) : (
         <WifiOff className="size-3.5 text-icon" strokeWidth={3} />
       )}
