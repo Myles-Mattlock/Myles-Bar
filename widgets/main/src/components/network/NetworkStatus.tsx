@@ -28,6 +28,7 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
       aria-label={`Network: ${connectedName}`}
       className="outline-none"
       onClick={async () => {
+        sessionStorage.setItem('system-stats-initial-route', '/network');
         const placement = await calculateWidgetPlacementFromRight(chipRef, {
           width: 400,
           height: 400,
@@ -40,6 +41,7 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
       ) : (
         <WifiOff className="size-3.5 text-icon" strokeWidth={3} />
       )}
+      <span className="max-w-28 truncate text-xs">{connectedName}</span>
     </Chip>
   );
 }

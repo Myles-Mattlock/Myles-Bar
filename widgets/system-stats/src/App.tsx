@@ -19,6 +19,12 @@ const providers = zebar.createProviderGroup({
 });
 
 function App() {
+  const initialRoute = sessionStorage.getItem('system-stats-initial-route');
+  if (initialRoute) {
+    sessionStorage.removeItem('system-stats-initial-route');
+    window.location.hash = initialRoute;
+  }
+
   const [output, setOutput] = useState(providers.outputMap);
 
   useEffect(() => {
