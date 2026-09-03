@@ -99,6 +99,47 @@
       ]
     },
     {
+      "name": "network-stats",
+      "htmlPath": "./widgets/system-stats/dist/index.html",
+      "zOrder": "normal",
+      "shownInTaskbar": false,
+      "focused": true,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "widgets/system-stats/dist/index.html",
+        "widgets/system-stats/dist/assets/**",
+        "widgets/system-stats/dist/config.json",
+        "widgets/system-stats/dist/geistMono/**",
+        "widgets/system-stats/README.md"
+      ],
+      "caching": {
+        "defaultDuration": 604800,
+        "rules": []
+      },
+      "privileges": {
+        "shellCommands": []
+      },
+      "presets": [
+        {
+          "name": "default",
+          "anchor": "top_left",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "width": "400px",
+          "height": "400px",
+          "monitorSelection": {
+            "type": "all"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
       "name": "script-launcher",
       "htmlPath": "./widgets/script-launcher/dist/index.html",
       "zOrder": "normal",

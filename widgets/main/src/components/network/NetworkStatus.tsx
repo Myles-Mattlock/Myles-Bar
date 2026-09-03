@@ -28,12 +28,11 @@ export default function NetworkStatus({ network }: NetworkStatusProps) {
       aria-label={`Network: ${connectedName}`}
       className="outline-none"
       onClick={async () => {
-        sessionStorage.setItem('system-stats-initial-route', '/network');
         const placement = await calculateWidgetPlacementFromRight(chipRef, {
           width: 400,
           height: 400,
         });
-        await zebar.startWidget('system-stats', placement, {});
+        await zebar.startWidget('network-stats', placement, {});
       }}
     >
       {connectedInterface ? (

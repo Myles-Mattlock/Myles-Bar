@@ -19,10 +19,8 @@ const providers = zebar.createProviderGroup({
 });
 
 function App() {
-  const initialRoute = sessionStorage.getItem('system-stats-initial-route');
-  if (initialRoute) {
-    sessionStorage.removeItem('system-stats-initial-route');
-    window.location.hash = initialRoute;
+  if (zebar.currentWidget().name === 'network-stats') {
+    window.location.hash = '/network';
   }
 
   const [output, setOutput] = useState(providers.outputMap);
