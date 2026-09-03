@@ -1,75 +1,79 @@
-name: Deploy
+name: Release
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version number for release"
+        description: 'Release version, for example v1.0.0'
         required: true
-        default: "v1.0.0"
+        default: 'v1.0.0'
+
+permissions:
+  contents: write
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  build-and-release:
+    runs-on: ubuntu-26.04
 
     steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # Set up Node.js environment
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.4
+
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: "21.2.0"
+          node-version: 22
+          cache: pnpm
 
-      # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
-      # Run build to generate the dist folder
-      - name: Build project
-        run: npm run build
+      - name: Build widgets
+        run: pnpm build
 
-      # Create release folder structure
-      - name: Create release folder structure
+      - name: Create release archive
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
         run: |
-          mkdir -p overline-zebar/dist
-          cp -r dist/* overline-zebar/dist/
-          cp overline.zebar.json overline-zebar/overline.zebar.json
-          cp public/release-config.json overline-zebar/dist/config.json
-          rm -f overline-zebar/dist/release-config.json
+          set -euo pipefail
 
-      # Zip the release folder
-      - name: Zip release folder
-        run: zip -r overline-zebar.zip overline-zebar
+          release_dir="release/$(basename "$GITHUB_REPOSITORY")"
+          mkdir -p "$release_dir/widgets"
 
-      # Create GitHub Release with the specified version
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          cp zpack.json "$release_dir/"
+          cp -R resources "$release_dir/"
+
+          for widget_dir in widgets/*; do
+            if [[ -d "$widget_dir/dist" ]]; then
+              mkdir -p "$release_dir/$widget_dir"
+              cp -R "$widget_dir/dist" "$release_dir/$widget_dir/"
+            fi
+
+            if [[ -f "$widget_dir/README.md" ]]; then
+              mkdir -p "$release_dir/$widget_dir"
+              cp "$widget_dir/README.md" "$release_dir/$widget_dir/"
+            fi
+          done
+
+          mkdir -p dist
+          cp -R "$release_dir" dist/
+          (cd release && zip -r "../$(basename "$GITHUB_REPOSITORY")-$RELEASE_VERSION.zip" .)
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.inputs.version }}
-          release_name: Release ${{ github.event.inputs.version }}
-          draft: false
-          prerelease: false
+          tag_name: ${{ inputs.version }}
+          name: Release ${{ inputs.version }}
+          generate_release_notes: true
+          files: ${{ github.event.repository.name }}-${{ inputs.version }}.zip
 
-      # Upload Release Asset
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./overline-zebar.zip
-          asset_name: overline-zebar.zip
-          asset_content_type: application/zip
-
-      # Upload the dist folder as an artifact after the build (keeping this for reference)
-      - name: Upload dist folder
+      - name: Upload release artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
+          name: ${{ github.event.repository.name }}-${{ inputs.version }}
           path: dist/
