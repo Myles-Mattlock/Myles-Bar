@@ -4,6 +4,7 @@ import * as zebar from 'zebar';
 import { Center } from './components/Center';
 import { LeftButtons } from './components/leftButtons';
 import Media from './components/media';
+import NetworkStatus from './components/network/NetworkStatus';
 import RightButtons from './components/rightButtons/RightButtons';
 import StatProviders from './components/statProviders';
 import Systray from './components/systray';
@@ -73,6 +74,7 @@ function App() {
 
       {/* Right */}
       <div className="flex gap-2 items-center h-full z-10">
+        <NetworkStatus network={output.network} />
         <div className="flex items-center h-full">
           <StatProviders
             weather={output.weather}
