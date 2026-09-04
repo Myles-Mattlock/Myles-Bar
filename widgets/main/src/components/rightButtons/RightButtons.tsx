@@ -1,5 +1,5 @@
-import { logger } from '@overline-zebar/config/src/utils/logger';
-import { Button } from '@overline-zebar/ui';
+import { logger } from '@myles-zebar/config/src/utils/logger';
+import { Button } from '@myles-zebar/ui';
 import { Power, X } from 'lucide-react';
 import { useState } from 'react';
 import * as zebar from 'zebar';

@@ -1,5 +1,5 @@
 import { formatMsToHumanDuration } from '@/utils/time';
-import { PanelLayout, WindowsIcon } from '@overline-zebar/ui';
+import { PanelLayout, WindowsIcon } from '@myles-zebar/ui';
 import { BatteryOutput, HostOutput } from 'zebar';
 import { BatterySection } from './components/BatterySection';
 

@@ -4,7 +4,7 @@ import { defaultConfig } from './defaults/default-config';
 import { deepMerge } from './utils/deepMerge';
 import { logger } from './utils/logger';
 
-const STORAGE_KEY = 'overline-zebar-config';
+const STORAGE_KEY = 'myles-zebar-config';
 
 let cachedConfig: RootConfig | null = null;
 

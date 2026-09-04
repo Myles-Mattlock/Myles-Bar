@@ -1,4 +1,4 @@
-import { Chip } from '@overline-zebar/ui';
+import { Chip } from '@myles-zebar/ui';
 import { Cable, Wifi, WifiOff } from 'lucide-react';
 import { useRef } from 'react';
 import * as zebar from 'zebar';

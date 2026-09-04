@@ -1,5 +1,5 @@
 {
-  "extends": "@overline-zebar/typescript/react-library.json",
+  "extends": "@myles-zebar/typescript/react-library.json",
   "include": ["src"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {

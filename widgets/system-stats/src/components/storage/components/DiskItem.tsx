@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Card, CardTitle, Progress } from '@overline-zebar/ui';
+import { Card, CardTitle, Progress } from '@myles-zebar/ui';
 import type { Disk } from 'zebar';
 
 interface DiskItemProps {

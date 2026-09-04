@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import * as zebar from 'zebar';
-import { useWidgetSetting, Threshold } from '@overline-zebar/config';
-import { Chip } from '@overline-zebar/ui';
+import { useWidgetSetting, Threshold } from '@myles-zebar/config';
+import { Chip } from '@myles-zebar/ui';
 import { calculateWidgetPlacementFromRight } from '../../utils/calculateWidgetPlacement';
 import { getWeatherIcon } from '../../utils/weatherIcons';
 

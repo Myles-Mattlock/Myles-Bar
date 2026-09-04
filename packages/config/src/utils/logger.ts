@@ -5,7 +5,7 @@ export enum LogLevel {
   Log = 3,
 }
 
-const PREFIX = '[overline-zebar/config]';
+const PREFIX = '[myles-zebar/config]';
 
 export const logger = {
   level: LogLevel.Log,

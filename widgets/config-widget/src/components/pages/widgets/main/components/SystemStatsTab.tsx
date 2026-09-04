@@ -4,9 +4,9 @@ import {
   FieldTitle,
   FormField,
   Switch,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import ThresholdsInput from './ThresholdsInput';
-import { useWidgetSetting, ProviderSettings } from '@overline-zebar/config';
+import { useWidgetSetting, ProviderSettings } from '@myles-zebar/config';
 import { Separator } from '@/components/common/Separator';
 
 const providerLabels: Record<keyof ProviderSettings, string> = {

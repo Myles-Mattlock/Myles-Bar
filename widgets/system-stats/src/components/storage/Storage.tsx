@@ -1,6 +1,6 @@
 import { DiskOutput } from 'zebar';
 import DiskItem from './components/DiskItem';
-import { PanelLayout } from '@overline-zebar/ui';
+import { PanelLayout } from '@myles-zebar/ui';
 
 export default function Storage({ disk }: { disk: DiskOutput | null }) {
   if (!disk || !disk.disks || disk.disks.length === 0)

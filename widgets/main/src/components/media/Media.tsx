@@ -5,7 +5,7 @@ import { ConditionalPanel } from '../common/ConditionalPanel';
 import { ProgressBar } from './components/ProgressBar';
 import { Status } from './components/Status';
 import { TitleDetails } from './components/TitleDetails';
-import { Chip } from '@overline-zebar/ui';
+import { Chip } from '@myles-zebar/ui';
 
 export const TitleDetailsMemo = React.memo(TitleDetails);
 

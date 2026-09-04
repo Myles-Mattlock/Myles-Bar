@@ -4,7 +4,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import PanelHeading from '../../../PanelHeading';
 import GeneralTab from './components/GeneralTab';
 import SystemStatsTab from './components/SystemStatsTab';

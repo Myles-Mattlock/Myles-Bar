@@ -3,7 +3,7 @@ import { GlazeWmOutput } from 'zebar';
 import { ConditionalPanel } from '../../common/ConditionalPanel';
 import { CopyProcessName } from './commands/CopyProcessName';
 import { ToggleFloating } from './commands/ToggleFloating';
-import { Chip } from '@overline-zebar/ui';
+import { Chip } from '@myles-zebar/ui';
 import { ToggleFullscreen } from './commands/ToggleFullscreen';
 
 interface WindowControlsProps {
