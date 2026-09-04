@@ -1,5 +1,5 @@
-import { Threshold } from '@overline-zebar/config';
-import { StatRing } from '@overline-zebar/ui';
+import { Threshold } from '@myles-zebar/config';
+import { StatRing } from '@myles-zebar/ui';
 import { StatInline } from './components/StatInline';
 
 interface BaseStatProps {

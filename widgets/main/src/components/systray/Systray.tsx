@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { SystrayIcon, SystrayOutput } from 'zebar';
 import { ExpandingCarousel } from './components/ExpandingCarousel';
 import { SystrayItem } from './components/SystrayItem';
-import { useWidgetSetting } from '@overline-zebar/config';
+import { useWidgetSetting } from '@myles-zebar/config';
 
 type SystrayProps = {
   systray: SystrayOutput | null;

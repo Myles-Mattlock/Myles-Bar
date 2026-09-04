@@ -1,7 +1,7 @@
 import { cn } from '../../utils/cn';
 import Ring from './components/Ring';
 import { systemStatThresholds } from './defaults/systemStatThresholds';
-import { Threshold } from '@overline-zebar/config';
+import { Threshold } from '@myles-zebar/config';
 
 interface StatRingProps {
   Icon: React.ReactNode;

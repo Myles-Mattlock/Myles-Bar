@@ -1,4 +1,4 @@
-import { useWidgetSetting } from '@overline-zebar/config';
+import { useWidgetSetting } from '@myles-zebar/config';
 import { useEffect, useState } from 'react';
 import * as zebar from 'zebar';
 import { Center } from './components/Center';

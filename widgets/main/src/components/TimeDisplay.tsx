@@ -1,4 +1,4 @@
-import { useWidgetSetting } from '@overline-zebar/config';
+import { useWidgetSetting } from '@myles-zebar/config';
 import { DateOutput } from 'zebar';
 
 interface TimeDisplayProps {

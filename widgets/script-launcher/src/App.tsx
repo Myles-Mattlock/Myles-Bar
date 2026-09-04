@@ -1,8 +1,8 @@
-import { useWidgetSetting } from '@overline-zebar/config';
-import { UpdateScriptModal } from '@overline-zebar/config-widget';
-import { LauncherCommand } from '@overline-zebar/config/src/types';
-import { generateId } from '@overline-zebar/config/src/utils/generateId';
-import { logger } from '@overline-zebar/config/src/utils/logger';
+import { useWidgetSetting } from '@myles-zebar/config';
+import { UpdateScriptModal } from '@myles-zebar/config-widget';
+import { LauncherCommand } from '@myles-zebar/config/src/types';
+import { generateId } from '@myles-zebar/config/src/utils/generateId';
+import { logger } from '@myles-zebar/config/src/utils/logger';
 import {
   Button,
   ContextMenu,
@@ -11,7 +11,7 @@ import {
   ContextMenuItem,
   ContextMenuLabel,
   ContextMenuTrigger,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import {
   AppWindow,
   FileCode,

@@ -1,4 +1,4 @@
-import { Threshold } from '@overline-zebar/config';
+import { Threshold } from '@myles-zebar/config';
 import { cn } from '../../../utils/cn';
 
 interface StatProps {

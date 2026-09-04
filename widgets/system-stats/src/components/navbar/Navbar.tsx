@@ -1,4 +1,4 @@
-import { NavbarItem, Navbar as UiNavbar } from '@overline-zebar/ui';
+import { NavbarItem, Navbar as UiNavbar } from '@myles-zebar/ui';
 import { BarChart, Globe, HardDrive, Server } from 'lucide-react';
 import { useLocation } from 'wouter';
 

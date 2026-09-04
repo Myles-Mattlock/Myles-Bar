@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn';
-import { useConfigDispatch, useWidgetSetting } from '@overline-zebar/config';
-import { buttonVariants } from '@overline-zebar/ui';
+import { useConfigDispatch, useWidgetSetting } from '@myles-zebar/config';
+import { buttonVariants } from '@myles-zebar/ui';
 import { X } from 'lucide-react';
 import * as zebar from 'zebar';
 
@@ -23,7 +23,7 @@ export default function TitleBar() {
 
   return (
     <div className="bg-background-deeper border-b border-border flex items-center justify-between w-full rounded-t-lg">
-      <h1 className="pl-4 py-2 font-medium">overline-zebar</h1>
+      <h1 className="pl-4 py-2 font-medium">myles-zebar</h1>
       <button
         onClick={onClose}
         className={cn(

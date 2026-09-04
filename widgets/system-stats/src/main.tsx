@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import '@overline-zebar/ui/theme.css';
-import '@overline-zebar/ui/index.css';
-import '@overline-zebar/ui/fonts.css';
+import '@myles-zebar/ui/theme.css';
+import '@myles-zebar/ui/index.css';
+import '@myles-zebar/ui/fonts.css';
 import App from './App';
-import { ConfigProvider } from '@overline-zebar/config';
+import { ConfigProvider } from '@myles-zebar/config';
 
 const rootElement = document.getElementById('root');
 

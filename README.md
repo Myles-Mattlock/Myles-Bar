@@ -1,6 +1,6 @@
-<!-- ![Screenshot of overline-zebar in use with GlazeWM, previewing multiple themes and rounded settings](https://github.com/user-attachments/assets/08b4be9a-e405-4217-814b-aac7acd6e0f5)
+<!-- ![Screenshot of myles-zebar in use with GlazeWM, previewing multiple themes and rounded settings](https://github.com/user-attachments/assets/08b4be9a-e405-4217-814b-aac7acd6e0f5)
 
-# overline-zebar
+# myles-zebar
 
 A fully featured, highly customizable widget pack for [Zebar](https://github.com/glzr-io/zebar). Works in tandem with GlazeWM, perfect for making Windows look great 🌠
 
@@ -65,7 +65,7 @@ A simple but powerful widget that allows you to define and quickly run custom sh
 ### Option 1: The Zebar Marketplace (Recommended)
 
 1.  Right-click the Zebar tray icon, and click **Browse Widgets**.
-2.  Search for **"overline-zebar"**.
+2.  Search for **"myles-zebar"**.
 3.  Click **Install**.
 4.  Continue to the [Configuration](#configuration) section.
 
@@ -75,7 +75,7 @@ Choose this option if you want to customize the widget's functionality, modify t
 
 **Prerequisites:**
 
-- [Node.js](https://nodejs.org/) (v16 or newer)
+- [Node.js](https://nodejs.org/) (v26 or newer)
 - [pnpm](https://pnpm.io/)
 - [Git](https://git-scm.com/)
 
@@ -84,8 +84,8 @@ Choose this option if you want to customize the widget's functionality, modify t
 1.  Clone the repository to your local machine inside the `.glzr` directory (e.g., `C:/Users/<USER>/.glzr/zebar` on Windows):
 
     ```sh
-    git clone https://github.com/mushfikurr/overline-zebar.git
-    cd overline-zebar
+    git clone https://github.com/myles-mattlock/myles-bar.git
+    cd myles-bar
     ```
 
 2.  Install all required dependencies using pnpm:
@@ -97,7 +97,7 @@ Choose this option if you want to customize the widget's functionality, modify t
 3.  Build the project for production:
 
     ```sh
-    pnpm --filter "@overline-zebar/*" build
+    pnpm --filter "@myles-zebar/*" build
     ```
 
     This creates a `dist` folder in each widget's directory, containing the compiled widget ready for use.
@@ -106,7 +106,7 @@ Choose this option if you want to customize the widget's functionality, modify t
 
 ## Configuration
 
-`overline-zebar` is highly configurable through the **config-widget**. To open it, click on the left-most button (Script Launcher), and then the "Gear Icon".
+`myles-zebar` is highly configurable through the **config-widget**. To open it, click on the left-most button (Script Launcher), and then the "Gear Icon".
 
 ### (!) For Zebar specific settings
 

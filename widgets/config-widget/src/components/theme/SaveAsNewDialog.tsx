@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
   Input,
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 import { useState } from 'react';
 
 type Props = {

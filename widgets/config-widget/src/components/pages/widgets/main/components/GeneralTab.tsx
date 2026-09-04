@@ -1,7 +1,7 @@
 import { Separator } from '@/components/common/Separator';
 import { useState } from 'react';
 import { NumberInput } from '@/components/NumberInput';
-import { useWidgetSetting } from '@overline-zebar/config';
+import { useWidgetSetting } from '@myles-zebar/config';
 import {
   FieldDescription,
   FieldInput,
@@ -10,7 +10,7 @@ import {
   Input,
   Switch,
   Button, // Added Button import
-} from '@overline-zebar/ui';
+} from '@myles-zebar/ui';
 
 function GeneralTab() {
   const [mediaMaxWidth, setMediaMaxWidth] = useWidgetSetting(

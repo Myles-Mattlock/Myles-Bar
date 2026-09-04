@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ConfigProvider } from '@overline-zebar/config';
-import '@overline-zebar/ui/theme.css';
-import '@overline-zebar/ui/index.css';
-import '@overline-zebar/ui/fonts.css';
+import { ConfigProvider } from '@myles-zebar/config';
+import '@myles-zebar/ui/theme.css';
+import '@myles-zebar/ui/index.css';
+import '@myles-zebar/ui/fonts.css';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

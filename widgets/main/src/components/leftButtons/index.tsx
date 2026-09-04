@@ -1,5 +1,5 @@
-import { useWidgetSetting } from '@overline-zebar/config';
-import { Button } from '@overline-zebar/ui';
+import { useWidgetSetting } from '@myles-zebar/config';
+import { Button } from '@myles-zebar/ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronRight, LayoutGrid } from 'lucide-react';
 import { useRef } from 'react';

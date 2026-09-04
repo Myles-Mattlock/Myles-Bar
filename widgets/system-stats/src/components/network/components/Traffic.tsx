@@ -1,4 +1,4 @@
-import { Card, CardTitle } from '@overline-zebar/ui';
+import { Card, CardTitle } from '@myles-zebar/ui';
 import { ArrowDownUp, CloudDownload, CloudUpload } from 'lucide-react';
 import { NetworkTraffic } from 'zebar';
 
