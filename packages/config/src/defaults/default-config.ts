@@ -17,9 +17,10 @@ export const defaultConfig: RootConfig = {
       mediaMaxWidth: '400',
       weatherThresholds: [
         { id: 'weather-1', min: -10, max: 0, labelColor: '--danger' },
-        { id: 'weather-2', min: 1, max: 15, labelColor: '--text' },
-        { id: 'weather-3', min: 16, max: 25, labelColor: '--warning' },
-        { id: 'weather-4', min: 26, max: 35, labelColor: '--danger' },
+        { id: 'weather-2', min: 1, max: 6, labelColor: '--warning' },
+        { id: 'weather-3', min: 7, max: 21, labelColor: '--text' },
+        { id: 'weather-4', min: 22, max: 25, labelColor: '--warning' },
+        { id: 'weather-5', min: 26, max: 42, labelColor: '--danger' },
       ],
       systemStatThresholds: [
         { id: 'stat-1', min: 0, max: 70, labelColor: '--text' },
@@ -28,8 +29,11 @@ export const defaultConfig: RootConfig = {
       ],
       batteryThresholds: [
         { id: 'battery-1', min: 0, max: 20, labelColor: '--danger' },
-        { id: 'battery-2', min: 20, max: 60, labelColor: '--warning' },
-        { id: 'battery-3', min: 60, max: 100, labelColor: '--text' },
+        { id: 'battery-2', min: 21, max: 30, labelColor: '--warning' },
+        { id: 'battery-3', min: 31, max: 79, labelColor: '--text' },
+        { id: 'battery-4', min: 80, max: 80, labelColor: '--success' },
+        { id: 'battery-5', min: 81, max: 90, labelColor: '--warning' },
+        { id: 'battery-6', min: 91, max: 100, labelColor: '--danger' },
       ],
       useInlineStats: false,
       pinnedSystrayIcons: [],
@@ -46,9 +50,6 @@ export const defaultConfig: RootConfig = {
         weather: true,
         battery: true,
       },
-    },
-    'script-launcher': {
-      applications: [],
     },
   },
 };

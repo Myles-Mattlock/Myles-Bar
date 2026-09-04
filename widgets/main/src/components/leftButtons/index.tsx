@@ -1,43 +1,35 @@
-import { useWidgetSetting } from '@myles-zebar/config';
 import { Button } from '@myles-zebar/ui';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronRight, LayoutGrid } from 'lucide-react';
-import { useRef } from 'react';
-import * as zebar from 'zebar';
+import { Broom, ChevronRight } from 'lucide-react';
 import { GlazeWmOutput } from 'zebar';
-import { calculateWidgetPlacementFromLeft } from '../../utils/calculateWidgetPlacement';
+import * as zebar from 'zebar';
 import { cn } from '../../utils/cn';
 
 interface LeftButtonsProps {
   glazewm: GlazeWmOutput | null;
 }
 
+const cleanupToolPath =
+  'C:\\Program Files\\SystemCleanUp\\System CleanUp.exe';
+
 export function LeftButtons({ glazewm }: LeftButtonsProps) {
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const [marginX] = useWidgetSetting('main', 'marginX');
-
-  if (!glazewm) return null;
-
-  const calculatePlacementFromRef = async () => {
-    return await calculateWidgetPlacementFromLeft(
-      buttonRef,
-      {
-        width: 400,
-        height: 400,
-      },
-      marginX
-    );
-  };
-
-  const handleOpenScriptLauncher = async () => {
-    const placement = await calculatePlacementFromRef();
-    await zebar.startWidget('script-launcher', placement, {});
+  const handleCleanup = async () => {
+    try {
+      await zebar.shellSpawn('cmd.exe', [
+        '/c',
+        'start',
+        '',
+        cleanupToolPath,
+      ]);
+    } catch (error) {
+      console.error('Failed to launch the cleanup tool', error);
+    }
   };
 
   return (
     <div className="flex items-center h-full gap-1.5">
       <AnimatePresence>
-        {glazewm.bindingModes.map((bindingMode) => (
+        {glazewm?.bindingModes.map((bindingMode) => (
           <motion.div
             key={bindingMode.name}
             initial={{ opacity: 0 }}
@@ -55,26 +47,28 @@ export function LeftButtons({ glazewm }: LeftButtonsProps) {
 
       <Button
         size="icon-sm"
-        ref={buttonRef}
+        onClick={handleCleanup}
         className="h-full"
-        onClick={handleOpenScriptLauncher}
+        title="Run system cleanup"
       >
-        <LayoutGrid strokeWidth={2.5} className="h-3 w-3" />
+        <Broom className="h-3 w-3" strokeWidth={2.5} />
       </Button>
 
-      <Button
-        size="icon-sm"
-        onClick={() => glazewm.runCommand('toggle-tiling-direction')}
-        className="h-full"
-      >
-        <ChevronRight
-          className={cn(
-            'h-3 w-3 transition-transform duration-200 ease-in-out',
-            glazewm.tilingDirection === 'vertical' ? 'rotate-90' : ''
-          )}
-          strokeWidth={3}
-        />
-      </Button>
+      {glazewm && (
+        <Button
+          size="icon-sm"
+          onClick={() => glazewm.runCommand('toggle-tiling-direction')}
+          className="h-full"
+        >
+          <ChevronRight
+            className={cn(
+              'h-3 w-3 transition-transform duration-200 ease-in-out',
+              glazewm.tilingDirection === 'vertical' ? 'rotate-90' : ''
+            )}
+            strokeWidth={3}
+          />
+        </Button>
+      )}
     </div>
   );
 }

@@ -35,6 +35,14 @@
           {
             "program": "shutdown",
             "argsRegex": ".*"
+          },
+          {
+            "program": "C:\\Program Files\\SystemCleanUp\\System CleanUp.exe",
+            "argsRegex": ".*"
+          },
+          {
+            "program": "cmd.exe",
+            "argsRegex": ".*SystemCleanUp.*"
           }
         ]
       },
@@ -130,52 +138,6 @@
           "height": "400px",
           "monitorSelection": {
             "type": "all"
-          },
-          "dockToEdge": {
-            "enabled": false,
-            "edge": null,
-            "windowMargin": "0px"
-          }
-        }
-      ]
-    },
-    {
-      "name": "script-launcher",
-      "htmlPath": "./widgets/script-launcher/dist/index.html",
-      "zOrder": "normal",
-      "shownInTaskbar": false,
-      "focused": true,
-      "resizable": false,
-      "transparent": true,
-      "includeFiles": [
-        "widgets/script-launcher/dist/index.html",
-        "widgets/script-launcher/dist/assets/**",
-        "widgets/script-launcher/dist/config.json",
-        "widgets/script-launcher/dist/geistMono/**",
-        "widgets/script-launcher/README.md"
-      ],
-      "caching": {
-        "defaultDuration": 604800,
-        "rules": []
-      },
-      "privileges": {
-        "shellCommands": [
-          {
-            "program": "shutdown",
-            "argsRegex": ".*"
-          }
-        ]
-      },
-      "presets": [
-        {
-          "name": "default",
-          "anchor": "top_left",
-          "offsetX": "0px",
-          "offsetY": "0px",
-          "width": "400px",
-          "height": "400px",
-          "monitorSelection": {
-            "type": "primary"
           },
           "dockToEdge": {
             "enabled": false,

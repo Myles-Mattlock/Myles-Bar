@@ -45,14 +45,6 @@ export default function Navbar() {
         location={location}
         navigate={navigate}
       />
-      <NavbarItem
-        className="rounded-none"
-        Icon={LayoutGrid}
-        title="Script Launcher"
-        href="/widget/script-launcher"
-        location={location}
-        navigate={navigate}
-      />
     </UiNavbar>
   );
 }

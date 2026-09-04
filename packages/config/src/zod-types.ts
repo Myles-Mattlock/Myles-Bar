@@ -12,6 +12,7 @@ export const LabelColorSchema = z.union([
   z.literal('--danger'),
   z.literal('--warning'),
   z.literal('--text'),
+  z.literal('--success'),
 ]);
 
 export const BaseWidgetSettingsSchema = z.object({});
@@ -64,22 +65,8 @@ export const MainWidgetSettingsSchema = BaseWidgetSettingsSchema.extend({
   useInlineStats: z.boolean().default(false),
 });
 
-export const LauncherCommandSchema = z.object({
-  id: z.string(),
-  command: z.string(),
-  args: z.array(z.string()),
-  title: z.string(),
-  icon: z.string().optional(),
-});
-
-export const ScriptLauncherWidgetSettingsSchema =
-  BaseWidgetSettingsSchema.extend({
-    applications: z.array(LauncherCommandSchema),
-  });
-
 export const AllWidgetSettingsSchema = z.object({
   main: MainWidgetSettingsSchema,
-  'script-launcher': ScriptLauncherWidgetSettingsSchema,
   'config-widget': z.object({}),
 });
 
