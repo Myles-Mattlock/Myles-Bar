@@ -19,7 +19,7 @@
   "packageManager": "pnpm@11.25.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "build": "pnpm --filter \"@myles-zebar/*\" build",
+    "build": "pnpm --filter @myles-zebar/ui build && pnpm --filter \"@myles-zebar/*\" build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,html,yaml,vue,svelte,graphql}",
     "check-format": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md,html,yaml,vue,svelte,graphql}\"",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
