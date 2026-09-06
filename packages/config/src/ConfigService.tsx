@@ -41,6 +41,25 @@ function loadConfig(forceReload = false): RootConfig {
     // if (parsed.version < CURRENT_VERSION) parsed = migrate(parsed);
 
     cachedConfig = deepMerge(defaultConfig, parsed);
+
+    const mainWidget = cachedConfig.widgets.main;
+    const batteryThresholds = mainWidget?.batteryThresholds;
+    const hasLegacyBatteryDefaults =
+      batteryThresholds?.some(
+        (threshold) =>
+          threshold.id === 'battery-6' ||
+          (threshold.id === 'battery-2' && threshold.max === 30) ||
+          (threshold.id === 'battery-3' && threshold.min === 31) ||
+          (threshold.id === 'battery-4' && threshold.min === 80)
+      ) ?? false;
+
+    if (mainWidget && hasLegacyBatteryDefaults) {
+      mainWidget.batteryThresholds =
+        defaultConfig.widgets.main?.batteryThresholds ?? [];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cachedConfig));
+      logger.log('Migrated legacy battery thresholds to current defaults');
+    }
+
     logger.log('Successfully merged default config with user config');
 
     return cachedConfig;

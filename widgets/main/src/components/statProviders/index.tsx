@@ -157,33 +157,72 @@ function BatteryStat({
   if (!batteryProvider || !battery) return null;
 
   const chargePercent = Math.round(battery.chargePercent);
+  const isLegacyBatteryThresholds = batteryThresholds.some(
+    (threshold) =>
+      threshold.id === 'battery-6' ||
+      (threshold.id === 'battery-2' && threshold.max === 30) ||
+      (threshold.id === 'battery-3' && threshold.min === 31) ||
+      (threshold.id === 'battery-4' && threshold.min === 80)
+  );
+  const activeBatteryThresholds = isLegacyBatteryThresholds
+    ? [
+        { id: 'battery-1', min: 0, max: 20, labelColor: '--danger' as const },
+        {
+          id: 'battery-2',
+          min: 21,
+          max: 74,
+          labelColor: '--warning' as const,
+        },
+        {
+          id: 'battery-3',
+          min: 75,
+          max: 80,
+          labelColor: '--success' as const,
+        },
+        {
+          id: 'battery-4',
+          min: 81,
+          max: 90,
+          labelColor: '--warning' as const,
+        },
+        { id: 'battery-5', min: 91, max: 100, labelColor: '--danger' as const },
+      ]
+    : batteryThresholds;
+  const batteryColor = activeBatteryThresholds.find(
+    (threshold) =>
+      chargePercent >= threshold.min && chargePercent <= threshold.max
+  )?.labelColor;
 
   const renderBatteryIcon = () => {
     if (battery.isCharging) {
       return (
-        <BatteryCharging strokeWidth={3} className="h-3.5 w-3.5 text-icon" />
+        <BatteryCharging strokeWidth={3} className="h-4 w-4" />
       );
     }
 
     if (chargePercent >= 80) {
-      return <BatteryFull strokeWidth={3} className="h-3.5 w-3.5 text-icon" />;
+      return <BatteryFull strokeWidth={3} className="h-4 w-4" />;
     }
 
     if (chargePercent >= 40) {
       return (
-        <BatteryMedium strokeWidth={3} className="h-3.5 w-3.5 text-icon" />
+        <BatteryMedium strokeWidth={3} className="h-4 w-4" />
       );
     }
 
-    return <BatteryLow strokeWidth={3} className="h-3.5 w-3.5 text-icon" />;
+    return <BatteryLow strokeWidth={3} className="h-4 w-4" />;
   };
 
   return (
     <Stat
-      Icon={renderBatteryIcon()}
+      Icon={
+        <span style={{ color: batteryColor ? `var(${batteryColor})` : undefined }}>
+          {renderBatteryIcon()}
+        </span>
+      }
       stat={`${chargePercent}%`}
       type="inline"
-      threshold={batteryThresholds}
+      threshold={activeBatteryThresholds}
     />
   );
 }

@@ -25,7 +25,7 @@ const providers = zebar.createProviderGroup({
   weather: { type: 'weather' },
   audio: { type: 'audio' },
   systray: { type: 'systray' },
-  battery: { type: 'battery' },
+  battery: { type: 'battery', refreshInterval: 5 * 1000 },
 });
 
 function App() {

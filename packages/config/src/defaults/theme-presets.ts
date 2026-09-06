@@ -15,9 +15,9 @@ export const defaultTheme: Theme = {
     '--text': '#edeef0',
     '--text-muted': '#caced4',
     '--icon': '#a9aeb8',
-    '--success': '#a3be8c',
-    '--danger': '#bf616a',
-    '--warning': '#d08770',
+    '--success': '#8eec3b',
+    '--danger': '#f52e42',
+    '--warning': '#f3c034',
   },
 };
 
