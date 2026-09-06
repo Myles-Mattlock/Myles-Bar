@@ -1,7 +1,6 @@
 import { logger } from '@myles-zebar/config/src/utils/logger';
 import { Button } from '@myles-zebar/ui';
-import { Power, Settings, X } from 'lucide-react';
-import { useState } from 'react';
+import { Power, Settings } from 'lucide-react';
 import * as zebar from 'zebar';
 import { cn } from '../../utils/cn';
 
@@ -37,47 +36,29 @@ function SettingsButton() {
 }
 
 function PowerOffButton() {
-  const [shuttingDown, setShuttingDown] = useState(false);
-
   const handlePowerOff = async () => {
-    if (shuttingDown) {
-      await zebar
-        .shellSpawn('shutdown', '/a')
-        .then((shellProcess) => {
-          logger.log('Terminating OS shutdown');
-          shellProcess.onStderr((line) => logger.log(line));
-          setShuttingDown(false);
-        })
-        .catch((err) => {
-          logger.error('Error executing OS shutdown');
-          logger.error(err);
-        });
-    } else {
-      await zebar
-        .shellSpawn('shutdown', ['/s'])
-        .then((shellProcess) => {
-          logger.log('Executing OS shutdown');
-          shellProcess.onStderr((line) => logger.log(line));
-          setShuttingDown(true);
-        })
-        .catch((err) => {
-          logger.error('Error executing OS shutdown');
-          logger.error(err);
-        });
-    }
+    await zebar
+      .shellSpawn('powershell.exe', [
+        '-Command',
+        '(New-Object -ComObject Shell.Application).ShutdownWindows()',
+      ])
+      .then((shellProcess) => {
+        logger.log('Opened Windows shutdown dialog');
+        shellProcess.onStderr((line) => logger.log(line));
+      })
+      .catch((err) => {
+        logger.error('Error opening Windows shutdown dialog');
+        logger.error(err);
+      });
   };
 
   return (
     <Button
       size="icon-sm"
       onClick={handlePowerOff}
-      className={cn('h-full', shuttingDown && 'animate-pulse border-danger')}
+      className={cn('h-full')}
     >
-      {!shuttingDown ? (
-        <Power strokeWidth={3} className="text-danger" />
-      ) : (
-        <X strokeWidth={3} className="text-danger" />
-      )}
+      <Power strokeWidth={3} className="text-danger" />
     </Button>
   );
 }
