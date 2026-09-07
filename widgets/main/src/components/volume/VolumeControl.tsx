@@ -1,7 +1,6 @@
 import { Chip } from '@myles-zebar/ui';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Volume, Volume1, Volume2 } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { AudioOutput } from 'zebar';
 import Slider from './components/Slider';
 
@@ -12,23 +11,8 @@ export default function VolumeControl({
   iconClassnames: string;
   audio: AudioOutput | null;
 }) {
-  const [expanded, setExpanded] = useState(false);
   const [preMuteVolume, setPreMuteVolume] = useState(50);
-  const ref = useRef<HTMLButtonElement>(null);
-
-  // Close the slider when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setExpanded(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  const [isSliderOpen, setIsSliderOpen] = useState(false);
 
   if (!audio) return;
 
@@ -56,7 +40,7 @@ export default function VolumeControl({
       return;
     }
 
-    setExpanded(!expanded);
+    setIsSliderOpen((isOpen) => !isOpen);
   };
 
   const handleDoubleClick = () => {
@@ -76,7 +60,6 @@ export default function VolumeControl({
 
   return (
     <Chip
-      ref={ref}
       as="button"
       onClick={handleClick}
       onWheel={handleWheel}
@@ -86,21 +69,16 @@ export default function VolumeControl({
       <div className="flex items-center">
         <div>{renderIcon()}</div>
 
-        <div>
-          <AnimatePresence initial={false}>
-            {expanded && (
-              <motion.div
-                initial={{ width: 0, marginLeft: 0, opacity: 0 }}
-                animate={{ width: 'auto', marginLeft: '6px', opacity: 1 }}
-                exit={{ width: 0, marginLeft: 0, opacity: 0 }}
-                className="overflow-hidden"
-                transition={{ type: 'spring', duration: 0.3, bounce: 0 }}
-              >
-                <Slider value={playbackDevice.volume} setValue={setVolume} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <div
+          className={`ml-1.5 overflow-hidden transition-[width] duration-200 ${
+            isSliderOpen ? 'w-[8rem]' : 'w-0'
+          }`}
+        >
+          <Slider value={playbackDevice.volume} setValue={setVolume} />
         </div>
+        <span className="ml-1 text-xs tabular-nums text-icon">
+          {Math.round(playbackDevice.volume)}%
+        </span>
       </div>
     </Chip>
   );

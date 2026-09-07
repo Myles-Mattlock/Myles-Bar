@@ -27,12 +27,24 @@ function resolveBackgroundColor(config: RootConfig): string {
 
 export function useWindowEffects(state: RootConfig) {
   useEffect(() => {
-    const effects = resolveEffects(state.app.windowEffect);
-    const color = parseHexColor(resolveBackgroundColor(state));
+    const isRoundedMainBar =
+      zebar.currentWidget().name === 'main' &&
+      state.widgets.main?.roundedCorners === true;
+    const effects = isRoundedMainBar
+      ? []
+      : resolveEffects(state.app.windowEffect);
+    const color = parseHexColor(
+      isRoundedMainBar ? '#00000000' : resolveBackgroundColor(state)
+    );
 
     zebar
       .currentWidget()
       .tauriWindow.setEffects({ effects, color })
       .catch(() => {});
-  }, [state.app.windowEffect, state.app.currentThemeId, state.app.themes]);
+  }, [
+    state.app.windowEffect,
+    state.app.currentThemeId,
+    state.app.themes,
+    state.widgets.main?.roundedCorners,
+  ]);
 }

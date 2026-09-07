@@ -9,8 +9,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Switch,
 } from '@myles-zebar/ui';
-import { useAppSetting } from '@myles-zebar/config';
+import { useAppSetting, useWidgetSetting } from '@myles-zebar/config';
 import PanelHeading from '../PanelHeading';
 import { ThemeEditor } from '../theme/ThemeEditor';
 import { Separator } from '../common/Separator';
@@ -18,6 +19,11 @@ import { Separator } from '../common/Separator';
 function AppearanceSettings() {
   const [radius, setRadius] = useAppSetting('radius');
   const [windowEffect, setWindowEffect] = useAppSetting('windowEffect');
+  const [roundedCorners, setRoundedCorners] = useWidgetSetting(
+    'main',
+    'roundedCorners'
+  );
+  const [barRadius, setBarRadius] = useWidgetSetting('main', 'barRadius');
 
   const radiusOptions = [
     { label: 'None', value: '0rem' },
@@ -71,6 +77,52 @@ function AppearanceSettings() {
             </FieldInput>
             <FieldDescription>
               Changes how "rounded" elements are.
+            </FieldDescription>
+          </FormField>
+          <Separator />
+          <FormField switch>
+            <FieldTitle>Rounded Bar Corners</FieldTitle>
+            <FieldInput>
+              <Switch
+                checked={roundedCorners}
+                onCheckedChange={setRoundedCorners}
+              />
+            </FieldInput>
+            <FieldDescription>
+              Enable rounded corners on the main topbar without changing item
+              corners.
+            </FieldDescription>
+          </FormField>
+          <Separator />
+          <FormField>
+            <FieldTitle>Bar Border Radius</FieldTitle>
+            <FieldInput>
+              <Select
+                onValueChange={(value) => setBarRadius(value as string)}
+                defaultValue={barRadius}
+                items={radiusOptions}
+              >
+                <SelectTrigger>
+                  <SelectValue>
+                    {(value: string) => {
+                      const option = radiusOptions.find(
+                        (opt) => opt.value === value
+                      );
+                      return option ? option.label : '';
+                    }}
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  {radiusOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FieldInput>
+            <FieldDescription>
+              Controls the main topbar corners independently from its items.
             </FieldDescription>
           </FormField>
           <Separator />

@@ -1,4 +1,4 @@
-import { Button } from '@myles-zebar/ui';
+import { Button, WindowsIcon } from '@myles-zebar/ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Broom, ChevronRight } from 'lucide-react';
 import { GlazeWmOutput } from 'zebar';
@@ -13,6 +13,14 @@ const cleanupToolPath =
   'C:\\Program Files\\SystemCleanUp\\System CleanUp.exe';
 
 export function LeftButtons({ glazewm }: LeftButtonsProps) {
+  const handleWinver = async () => {
+    try {
+      await zebar.shellSpawn('winver');
+    } catch (error) {
+      console.error('Failed to launch winver', error);
+    }
+  };
+
   const handleCleanup = async () => {
     try {
       await zebar.shellSpawn('cmd.exe', [
@@ -28,6 +36,15 @@ export function LeftButtons({ glazewm }: LeftButtonsProps) {
 
   return (
     <div className="flex items-center h-full gap-1.5">
+      <Button
+        size="icon-sm"
+        onClick={handleWinver}
+        className="h-full"
+        title="About Windows"
+      >
+        <WindowsIcon className="h-4 w-4" />
+      </Button>
+
       <AnimatePresence>
         {glazewm?.bindingModes.map((bindingMode) => (
           <motion.div

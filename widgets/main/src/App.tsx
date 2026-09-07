@@ -41,14 +41,19 @@ function App() {
   const [marginX] = useWidgetSetting('main', 'marginX');
   const [paddingLeft] = useWidgetSetting('main', 'paddingLeft');
   const [paddingRight] = useWidgetSetting('main', 'paddingRight');
+  const [roundedCorners] = useWidgetSetting('main', 'roundedCorners');
+  const [barRadius] = useWidgetSetting('main', 'barRadius');
 
   return (
     <div
       className={cn(
         'relative flex justify-between items-center py-1 bg-background backdrop-blur-xl text-text h-screen antialiased select-none font-mono',
-        marginX > 0 && 'rounded-lg border border-border'
+        marginX > 0 && 'border border-border'
       )}
-      style={{ margin: `0 ${marginX}px` }}
+      style={{
+        margin: `0 ${marginX}px`,
+        ...(roundedCorners ? { borderRadius: barRadius } : {}),
+      }}
     >
       {/* Left */}
       <div

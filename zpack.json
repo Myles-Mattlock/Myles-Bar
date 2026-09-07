@@ -33,6 +33,10 @@
       "privileges": {
         "shellCommands": [
           {
+            "program": "winver",
+            "argsRegex": "^$"
+          },
+          {
             "program": "powershell.exe",
             "argsRegex": ".*ShutdownWindows.*"
           },

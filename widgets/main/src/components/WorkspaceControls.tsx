@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { GlazeWmOutput } from 'zebar';
 import { tailwindConfig } from '../main';
 import { cn } from '../utils/cn';
+import { EnergyScore } from './leftButtons/EnergyScore';
 import { ContainerType, formatWindowTitle } from './windowTitle/WindowTitle';
 
 type WorkspaceControlsProps = {
@@ -54,19 +55,20 @@ export function WorkspaceControls({ glazewm }: WorkspaceControlsProps) {
   };
 
   return (
-    <AnimatePresence>
-      <motion.div
-        onWheel={handleWheel}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={springConfig}
-        layout="size"
-        className={cn(
-          chipStyles,
-          'flex items-center gap-1 p-1 h-full rounded-2xl select-none overflow-hidden transition-[width] duration-200 ease-out'
-        )}
-      >
+    <div className="flex items-center gap-1.5 h-full">
+      <AnimatePresence>
+        <motion.div
+          onWheel={handleWheel}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={springConfig}
+          layout="size"
+          className={cn(
+            chipStyles,
+            'flex items-center gap-1 p-1 h-full rounded-2xl select-none overflow-hidden transition-[width] duration-200 ease-out'
+          )}
+        >
         {workspaces.map((workspace) => {
           const isActive = workspace.hasFocus;
           const label =
@@ -110,7 +112,9 @@ export function WorkspaceControls({ glazewm }: WorkspaceControlsProps) {
             </motion.button>
           );
         })}
-      </motion.div>
-    </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+      <EnergyScore />
+    </div>
   );
 }

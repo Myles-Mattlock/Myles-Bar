@@ -51,6 +51,8 @@ export const MainWidgetSettingsSchema = BaseWidgetSettingsSchema.extend({
   marginX: z.number().default(0),
   paddingLeft: z.number().default(4),
   paddingRight: z.number().default(4),
+  roundedCorners: z.boolean().default(false),
+  barRadius: z.string().default('0.5rem'),
   dynamicWorkspaceIndicator: z.boolean().default(false),
   timeFormat: z.string().default('EEE d MMM t'),
   timeLocale: z.string().default('en-GB'),

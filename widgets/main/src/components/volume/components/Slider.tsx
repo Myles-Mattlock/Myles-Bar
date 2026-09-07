@@ -7,9 +7,11 @@ const MAX_OVERFLOW = 50;
 export default function Slider({
   value,
   setValue,
+  rangeColor,
 }: {
   value: number;
   setValue: (value: number) => void;
+  rangeColor?: string;
 }) {
   const ref = useRef<ElementRef<typeof RadixSlider.Root>>(null);
   const [_region, setRegion] = useState('middle');
@@ -60,6 +62,7 @@ export default function Slider({
             className="absolute h-full bg-primary rounded-full"
             style={{
               width: `${value}%`,
+              ...(rangeColor ? { backgroundColor: rangeColor } : {}),
             }}
           />
         </RadixSlider.Track>

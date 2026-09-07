@@ -41,6 +41,8 @@ export const defaultConfig: RootConfig = {
       marginX: 0,
       paddingLeft: 4,
       paddingRight: 4,
+      roundedCorners: false,
+      barRadius: '0.5rem',
       timeFormat: 'EEE d MMM t',
       timeLocale: 'en-GB',
       providers: {
