@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { GlazeWmOutput } from 'zebar';
 import { tailwindConfig } from '../main';
 import { cn } from '../utils/cn';
-import { EnergyScore } from './leftButtons/EnergyScore';
 import { ContainerType, formatWindowTitle } from './windowTitle/WindowTitle';
 
 type WorkspaceControlsProps = {
@@ -114,7 +113,6 @@ export function WorkspaceControls({ glazewm }: WorkspaceControlsProps) {
         })}
         </motion.div>
       </AnimatePresence>
-      <EnergyScore />
     </div>
   );
 }
