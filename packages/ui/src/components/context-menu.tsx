@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ContextMenu as BaseContextMenu } from '@base-ui-components/react/context-menu';
+import { ContextMenu as BaseContextMenu } from '@base-ui/react/context-menu';
 import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react';
 import { cn } from '../utils/cn';
 
@@ -206,12 +206,7 @@ function ContextMenuSub({
   ...props
 }: React.ComponentProps<typeof BaseContextMenu.SubmenuRoot>) {
   return (
-    <BaseContextMenu.SubmenuRoot
-      delay={0}
-      closeDelay={0}
-      data-slot="context-menu-sub"
-      {...props}
-    />
+    <BaseContextMenu.SubmenuRoot data-slot="context-menu-sub" {...props} />
   );
 }
 

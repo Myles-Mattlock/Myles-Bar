@@ -5,13 +5,14 @@ const SystrayIconSchema = z.string();
 export const ThemeSchema = z.object({
   id: z.string(),
   name: z.string(),
-  colors: z.record(z.string()),
+  colors: z.record(z.string(), z.string()),
 });
 
 export const LabelColorSchema = z.union([
   z.literal('--danger'),
   z.literal('--warning'),
   z.literal('--text'),
+  z.literal('--success'),
 ]);
 
 export const BaseWidgetSettingsSchema = z.object({});
@@ -50,31 +51,24 @@ export const MainWidgetSettingsSchema = BaseWidgetSettingsSchema.extend({
   marginX: z.number().default(0),
   paddingLeft: z.number().default(4),
   paddingRight: z.number().default(4),
+  roundedCorners: z.boolean().default(false),
+  barRadius: z.string().default('0.5rem'),
   dynamicWorkspaceIndicator: z.boolean().default(false),
   timeFormat: z.string().default('EEE d MMM t'),
   timeLocale: z.string().default('en-GB'),
-  providers: ProviderSettingsSchema.default({}),
+  providers: ProviderSettingsSchema.default({
+    cpu: true,
+    memory: true,
+    weather: true,
+    battery: true,
+  }),
   systemStatThresholds: z.array(ThresholdSchema).default([]),
   batteryThresholds: z.array(ThresholdSchema).default([]),
   useInlineStats: z.boolean().default(false),
 });
 
-export const LauncherCommandSchema = z.object({
-  id: z.string(),
-  command: z.string(),
-  args: z.array(z.string()),
-  title: z.string(),
-  icon: z.string().optional(),
-});
-
-export const ScriptLauncherWidgetSettingsSchema =
-  BaseWidgetSettingsSchema.extend({
-    applications: z.array(LauncherCommandSchema),
-  });
-
 export const AllWidgetSettingsSchema = z.object({
   main: MainWidgetSettingsSchema,
-  'script-launcher': ScriptLauncherWidgetSettingsSchema,
   'config-widget': z.object({}),
 });
 

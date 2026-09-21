@@ -122,6 +122,7 @@ function ThresholdColorSelect({
           <SelectItem value="--danger">Danger</SelectItem>
           <SelectItem value="--warning">Warning</SelectItem>
           <SelectItem value="--text">Text</SelectItem>
+          <SelectItem value="--success">Success</SelectItem>
         </SelectContent>
       </Select>
     </FormField>

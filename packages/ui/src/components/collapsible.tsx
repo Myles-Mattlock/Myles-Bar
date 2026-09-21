@@ -1,4 +1,4 @@
-import { Collapsible as BaseCollapsible } from '@base-ui-components/react/collapsible';
+import { Collapsible as BaseCollapsible } from '@base-ui/react/collapsible';
 import { cn } from '../utils/cn';
 
 function Collapsible({ ...props }: BaseCollapsible.Root.Props) {

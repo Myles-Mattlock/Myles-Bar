@@ -74,8 +74,7 @@ export function FieldInput({ children, className, ...props }: FieldInputProps) {
 }
 FieldInput.displayName = 'FieldInput';
 
-interface FieldDescriptionProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {
+interface FieldDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
   children: React.ReactNode;
   warning?: boolean;
 }

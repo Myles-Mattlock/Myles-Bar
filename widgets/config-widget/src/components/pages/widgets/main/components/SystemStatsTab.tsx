@@ -80,7 +80,7 @@ export default function SystemStatsTab() {
               </p>
             </div>
             <FormField switch>
-              <FieldTitle>Use Inline Stats</FieldTitle>
+              <FieldTitle>Show Percentage Text</FieldTitle>
               <FieldInput>
                 <Switch
                   checked={useInlineStats}
@@ -88,8 +88,7 @@ export default function SystemStatsTab() {
                 />
               </FieldInput>
               <FieldDescription>
-                Display CPU and RAM usage as inline text instead of ring
-                visualization.
+                Display CPU and RAM usage as percentage text.
               </FieldDescription>
             </FormField>
             <div className="space-y-4">

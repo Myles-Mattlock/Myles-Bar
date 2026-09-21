@@ -15,7 +15,6 @@ export type {
   MainWidgetSettings,
   ProviderSettings,
   RootConfig,
-  ScriptLauncherWidgetSettings,
   Theme,
   Threshold,
   WidgetSettingsMap,

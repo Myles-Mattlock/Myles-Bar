@@ -3,7 +3,8 @@
   "include": ["src"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }

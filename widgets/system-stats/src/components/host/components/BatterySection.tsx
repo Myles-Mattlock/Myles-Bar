@@ -9,7 +9,38 @@ type BatteryProps = {
 };
 export function BatterySection({ battery, thresholds }: BatteryProps) {
   const [configThresholds] = useWidgetSetting('main', 'batteryThresholds');
-  const batteryThresholds = thresholds ?? configThresholds;
+  const configuredThresholds = thresholds ?? configThresholds;
+  const hasLegacyThresholds = configuredThresholds.some(
+    (threshold) =>
+      threshold.id === 'battery-6' ||
+      (threshold.id === 'battery-2' && threshold.max === 30) ||
+      (threshold.id === 'battery-3' && threshold.min === 31) ||
+      (threshold.id === 'battery-4' && threshold.min === 80)
+  );
+  const batteryThresholds = hasLegacyThresholds
+    ? [
+        { id: 'battery-1', min: 0, max: 20, labelColor: '--danger' as const },
+        {
+          id: 'battery-2',
+          min: 21,
+          max: 74,
+          labelColor: '--warning' as const,
+        },
+        {
+          id: 'battery-3',
+          min: 75,
+          max: 80,
+          labelColor: '--success' as const,
+        },
+        {
+          id: 'battery-4',
+          min: 81,
+          max: 90,
+          labelColor: '--warning' as const,
+        },
+        { id: 'battery-5', min: 91, max: 100, labelColor: '--danger' as const },
+      ]
+    : configuredThresholds;
 
   const timeTillFullOrEmpty = battery.isCharging
     ? battery.timeTillFull
